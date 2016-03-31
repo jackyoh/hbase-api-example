@@ -7,7 +7,7 @@ import org.apache.hbase.coprocessor.factory.ConfigurationFactory;
 public class DropOneTableCoprocessorMain {
 	
 	public static void main(String args[]) throws Exception{
-		if(args.length <= 0){
+		if(args.length != 1){
 			throw new RuntimeException("Please input hbase table name");
 		}
 		String tableName = args[0];

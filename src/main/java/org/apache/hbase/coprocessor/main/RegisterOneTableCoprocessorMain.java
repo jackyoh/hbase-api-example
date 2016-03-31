@@ -4,18 +4,20 @@ import org.apache.hadoop.hbase.client.HBaseAdmin;
 import org.apache.hbase.coprocessor.CoprocessorManager;
 import org.apache.hbase.coprocessor.factory.ConfigurationFactory;
 
-public class RegisterAllTableCoprocessor {
-	
+public class RegisterOneTableCoprocessorMain {
+
 	public static void main(String args[]) throws Exception{
-		if(args.length <= 2){
-			throw new RuntimeException("Please input hbase hdfsJarFilePath, className");
+		
+		if(args.length != 3){
+			throw new RuntimeException("Please input hbase table name, hdfsJarFilePath, className");
 		}
-		String hdfsJarFilePath = args[0];
-		String className = args[1];
+		String tableName = args[0];
+		String hdfsJarFilePath = args[1];
+		String className = args[2];
 		
 		HBaseAdmin admin = new HBaseAdmin(ConfigurationFactory.getHBaseConfiguration());
 		CoprocessorManager manager = new CoprocessorManager(admin);
-		manager.addAllTableCoprocessor(hdfsJarFilePath, className);
+		manager.addCoprocessor(tableName, hdfsJarFilePath, className);
+		
 	}
-
 }
