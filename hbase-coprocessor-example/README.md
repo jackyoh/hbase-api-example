@@ -7,14 +7,14 @@ Download Source Code
 
 Build Source Code
 <pre>
-[user@host ~]$ cd hbase-api-example
-[user@host hbase-api-example]$ gradle clean build -x test
+[user@host ~]$ cd hbase-api-example/hbase-coprocessor-example
+[user@host hbase-coprocessor-example]$ gradle clean build -x test
 </pre>
 
 
 Modify shell script
 <pre>
-[user@host hbase-api-example]$ cd shell
+[user@host hbase-coprocessor-example]$ cd shell
 [user@host shell]$ vi registerOneTableCoprocessor.sh
 </pre>
 
